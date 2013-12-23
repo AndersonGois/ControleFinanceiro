@@ -1,0 +1,36 @@
+﻿@model Controle.View.EntradaView
+
+@{
+    ViewBag.Title = "Cadastro de Entradas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="height: 100%">
+    @using (Html.BeginForm())
+    {
+        <table>
+            <tr>
+                <td style="text-align: right">Codigo:</td>
+                <td>
+                    <input type="text" name="txtCodigo" id="txtCodigo" /></td>
+            </tr>
+            <tr>
+                <td style="text-align: right">Nome:</td>
+                <td>
+                    <input type="text" name="Nome" id="txtNome" value=" " /></td>
+            </tr>
+       
+            <tr>
+                <td style="text-align: right">Data prevista:</td>
+                <td>
+                    <input type="text" name="DataPrevista" value=" " /></td>
+            </tr>
+            <tr>
+                <td style="text-align: right">Valor:</td>
+                <td>
+                    <input type="text" name="Valor" value=" " /></td>
+            </tr>
+        </table>
+        
+        <input type="submit" value="Salvar"/>
+    }
+</div>
