@@ -16,7 +16,7 @@ namespace Controle.View
         [DisplayName("Data Prevista")]
         public DateTime DataPrevista { get; set; }
 
-        [Display(Name = "Nome Teste")]
+        [Display(Name = "Nome")]
         //[Required(ErrorMessage = "O nome do usuário é obrigatório", AllowEmptyStrings = false)]
         public string Nome { get; set; }
         public long Valor { get; set; }

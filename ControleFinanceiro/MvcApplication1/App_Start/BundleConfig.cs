@@ -26,6 +26,8 @@ namespace MvcApplication1
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css", "~/Content/Forms.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
+                        "~/Content/smoothness/jquery-ui-1.10.3.custom.min.css",
+                        "~/Content/smoothness/jquery-ui-1.10.3.custom.css",
                         "~/Content/themes/base/jquery.ui.core.css",
                         "~/Content/themes/base/jquery.ui.resizable.css",
                         "~/Content/themes/base/jquery.ui.selectable.css",

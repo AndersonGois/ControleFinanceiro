@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/Content/themes/base/css")
+
+
+    @RenderSection("scripts", required: false)
 </head>
-    <body>
-        <div style="background: #00bb00;height: 80%;padding: 2%;margin: 3%">
-            <div id="Cabecalho" style="margin:0 2% 0"><h1> @ViewBag.Title</h1></div>
-            <div style="margin:4%;background: #C0D999;padding: 2%">
-                @RenderBody()
-            </div>
+<body>
+    <div style="background: #FFF; height: 80%; padding: 0%; margin: 0%  11.4%">
+        <div id="Cabecalho" style="margin: 0 0 0 0; background-color: #FdFdFd; padding: 2%">
+            <h1>@ViewBag.Title</h1>
         </div>
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+        <div style="margin: 0%; background: #C0D999; padding: 2%">
+            @RenderBody()
+        </div>
+    </div>
+
+</body>
 </html>

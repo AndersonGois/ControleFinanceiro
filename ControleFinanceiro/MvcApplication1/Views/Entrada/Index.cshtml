@@ -1,67 +1,68 @@
 ﻿@model Controle.View.EntradaView
 
 @{
-    ViewBag.Title = "Index2";
+    ViewBag.Title = "Cadastro de entrada";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script type="text/javascript">
 
-<h2>Index2</h2>
+    $(function() {
+        $("input[name='DataPrevista']").datepicker();
+    });
+  
+</script>
+
 
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
 
     <div>
-        <fieldset>
 
-            <legend>EntradaView</legend>
+        <div class="formulario">
+            <div class="item-form tres-quartos">
+                <div class="titulo-item">
+                    @Html.LabelFor(model => model.Nome):
+                </div>
+                <div>
+                    @Html.EditorFor(model => model.Nome)
+                    @Html.ValidationMessageFor(model => model.Nome)
+                </div>
+            </div>
 
-            <div class="formulario">
-                <div class="item-form tres-quartos">
-                    <div class="titulo-item">
-                        @Html.LabelFor(model => model.Nome)
-                    </div>
-                    <div>
-                        @Html.EditorFor(model => model.Nome)
-                        @Html.ValidationMessageFor(model => model.Nome)
-                    </div>
+            <div class="item-form quarto">
+                <div class="titulo-item">
+                    @Html.LabelFor(model => model.DataPrevista):
                 </div>
 
-                <div class="item-form quarto">
-                    <div class="titulo-item">
-                        @Html.LabelFor(model => model.DataPrevista)
-                    </div>
-
-                    <div>
-                        @Html.EditorFor(model => model.DataPrevista)
-                        @Html.ValidationMessageFor(model => model.DataPrevista)
-                    </div>
+                <div>
+                    @Html.EditorFor(model => model.DataPrevista)
+                    @Html.ValidationMessageFor(model => model.DataPrevista)
                 </div>
+            </div>
 
-
-                <div class="item-form metade">
-                    <div class="titulo-item">
-                        @Html.LabelFor(model => model.Valor)
-                    </div>
-                    <div>
-                        @Html.EditorFor(model => model.Valor)
-                        @Html.ValidationMessageFor(model => model.Valor)
-                    </div>
+            <div class="item-form metade">
+                <div class="titulo-item">
+                    @Html.LabelFor(model => model.Valor):
                 </div>
+                <div>
+                    @Html.EditorFor(model => model.Valor)
+                    @Html.ValidationMessageFor(model => model.Valor)
+                </div>
+            </div>
+
+           
+            <div style="clear: both;margin: 1%;">
+                <input type="submit" value="Salvar" />
             </div>
 
 
 
-            <p>
-                <input type="submit" value="Create" />
-            </p>
-        </fieldset>
+        </div>
+
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
