@@ -12,13 +12,13 @@ namespace MvcApplication1.Controllers
         //
         // GET: /Entrada/
 
-        public ActionResult Index2()
+        public ActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Index2(EntradaView entradaView)
+        public ActionResult Index(EntradaView entradaView)
         {
             entradaView.Data = DateTime.Now;
 
