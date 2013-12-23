@@ -7,47 +7,49 @@
 
 <h2>Index2</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true)
 
-    <div style="background-image: url(/Content/Images/dolar.jpg);" >
-    <fieldset  >
-    
-        <legend>EntradaView</legend>
+    <div>
+        <fieldset>
 
-       
+            <legend>EntradaView</legend>
 
-        <div class="formulario inteiro">
-            @Html.LabelFor(model => model.DataPrevista)
-        </div>
-        <div class="formulario metade">
-            @Html.EditorFor(model => model.DataPrevista)
-            @Html.ValidationMessageFor(model => model.DataPrevista)
-        </div>
+            <div class="formulario">
 
-        <div class="formulario metade">
-            @Html.LabelFor(model => model.Nome)
-        </div>
-        <div class="formulario inteiro">
-            @Html.EditorFor(model => model.Nome)
-            @Html.ValidationMessageFor(model => model.Nome)
-        </div>
+                <div class="titulo-item">
+                    @Html.LabelFor(model => model.DataPrevista)
+                </div>
+                <div class="item-form inteiro">
+                    @Html.EditorFor(model => model.DataPrevista)
+                    @Html.ValidationMessageFor(model => model.DataPrevista)
+                </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Valor)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Valor)
-            @Html.ValidationMessageFor(model => model.Valor)
-        </div>
+                <div class="titulo-item">
+                    @Html.LabelFor(model => model.Nome)
+                </div>
+                <div class="item-form inteiro">
+                    @Html.EditorFor(model => model.Nome)
+                    @Html.ValidationMessageFor(model => model.Nome)
+                </div>
 
-       
+                 <div class="titulo-item">
+                    @Html.LabelFor(model => model.Valor)
+                </div>
+                <div class="item-form metade">
+                    @Html.EditorFor(model => model.Valor)
+                    @Html.ValidationMessageFor(model => model.Valor)
+                </div>
+            </div>
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-        </div>
+
+
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    </div>
 }
 
 <div>
