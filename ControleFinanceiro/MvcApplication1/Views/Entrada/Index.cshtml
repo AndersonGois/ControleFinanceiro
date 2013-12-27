@@ -4,12 +4,39 @@
     ViewBag.Title = "Cadastro de entrada";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="~/Scripts/knockout-2.1.0.debug.js"></script>
 <script type="text/javascript">
 
     $(function() {
-        $("input[name='DataPrevista']").datepicker();
+
     });
-  
+    
+    $(function () {
+        function appViewModel() {
+            this.Nome = ko.observable();
+            this.Valor = ko.observable(13);
+
+            var firstName1 = this.Nome;
+            var valor = this.Valor;
+
+            this.DezPorcento = ko.computed(function () {
+                return parseFloat(valor()) / 3;
+                
+            }, this);
+
+            this.Teste = function() {
+                var bla = parseFloat(this.Valor() / 3);
+                this.Valor(bla);
+            };   
+           
+        }
+        
+
+        // Activates knockout.js
+        ko.applyBindings(new appViewModel());
+
+    });
+
 </script>
 
 
@@ -25,7 +52,7 @@
                     @Html.LabelFor(model => model.Nome):
                 </div>
                 <div>
-                    @Html.EditorFor(model => model.Nome)
+                 <input data-bind="value: Nome" name="Nome" id="Nome"/>
                     @Html.ValidationMessageFor(model => model.Nome)
                 </div>
             </div>
@@ -46,24 +73,27 @@
                     @Html.LabelFor(model => model.Valor):
                 </div>
                 <div>
-                    @Html.EditorFor(model => model.Valor)
+                    <input data-bind="value: Valor" name="Valor" />
+                    <label data-bind="text: DezPorcento" lang="4"></label>
                     @Html.ValidationMessageFor(model => model.Valor)
                 </div>
             </div>
+            
 
-           
-            <div style="clear: both;margin: 1%;">
-                <input type="submit" value="Salvar" />
+
+
+            <div style="clear: both; margin: 1%;">
+                <input type="submit"   value="Salvar" />
             </div>
 
-
+         
 
         </div>
 
     </div>
 }
 
-
+  <p>First name: <strong data-bind="text: Nome"></strong></p>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
