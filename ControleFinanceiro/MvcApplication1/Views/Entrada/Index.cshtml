@@ -7,30 +7,54 @@
 <script src="~/Scripts/knockout-2.1.0.debug.js"></script>
 <script type="text/javascript">
 
-    $(function() {
+    var exibirCampos = function () {
+        $("#porsentagem").hide();
+        $("#pNome").hide();
+        
+        $("input[name='Valor']").change(function() {
+            if ($("input[name='Valor']").val() == "") {
+                $("#porsentagem").hide();
 
-    });
-    
+            } else {
+                $("#porsentagem").show();
+            }
+        });
+
+
+        $("input[name='Nome']").change(function() {
+            if ($("input[name='Nome']").val() == "") {
+                $("#pNome").hide();
+
+            } else {
+                $("#pNome").show();
+            }
+        });
+    };
+
+
     $(function () {
+        
+        exibirCampos();
+        
         function appViewModel() {
             this.Nome = ko.observable();
-            this.Valor = ko.observable(13);
+            this.Valor = ko.observable();
 
             var firstName1 = this.Nome;
             var valor = this.Valor;
 
             this.DezPorcento = ko.computed(function () {
-                return parseFloat(valor()) / 3;
-                
+                return (parseFloat(valor()) / 3).toFixed(2);
+
             }, this);
 
-            this.Teste = function() {
+            this.Teste = function () {
                 var bla = parseFloat(this.Valor() / 3);
                 this.Valor(bla);
-            };   
-           
+            };
+
         }
-        
+
 
         // Activates knockout.js
         ko.applyBindings(new appViewModel());
@@ -52,7 +76,7 @@
                     @Html.LabelFor(model => model.Nome):
                 </div>
                 <div>
-                 <input data-bind="value: Nome" name="Nome" id="Nome"/>
+                    <input data-bind="value: Nome" name="Nome" id="Nome" />
                     @Html.ValidationMessageFor(model => model.Nome)
                 </div>
             </div>
@@ -63,7 +87,8 @@
                 </div>
 
                 <div>
-                    @Html.EditorFor(model => model.DataPrevista)
+                   @* @Html.EditorFor(model => model.DataPrevista)*@
+                    <input id="DataPrevista" class="data"  name="DataPrevista"/>
                     @Html.ValidationMessageFor(model => model.DataPrevista)
                 </div>
             </div>
@@ -73,27 +98,30 @@
                     @Html.LabelFor(model => model.Valor):
                 </div>
                 <div>
-                    <input data-bind="value: Valor" name="Valor" />
-                    <label data-bind="text: DezPorcento" lang="4"></label>
+                    <input data-bind="value: Valor" class="somenteNumero" name="Valor" />
+                    <div id="porsentagem">
+                        <label>sugestão de Poupança:</label>
+                        <label data-bind="text: DezPorcento" lang="4"></label>
+                    </div>
                     @Html.ValidationMessageFor(model => model.Valor)
                 </div>
             </div>
-            
+
 
 
 
             <div style="clear: both; margin: 1%;">
-                <input type="submit"   value="Salvar" />
+                <input type="submit" value="Salvar" />
             </div>
 
-         
+
 
         </div>
 
     </div>
 }
 
-  <p>First name: <strong data-bind="text: Nome"></strong></p>
+<p id="pNome">Nome: <strong data-bind="text: Nome"></strong></p>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
