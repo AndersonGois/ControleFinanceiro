@@ -13,5 +13,9 @@ namespace Controle.Domain.Repository
          {
              return Todos<Usuario>();
          }
+        public virtual void  SalvarUsuario(Usuario usuario)
+        {
+            Salvar(usuario);
+        }
     }
 }

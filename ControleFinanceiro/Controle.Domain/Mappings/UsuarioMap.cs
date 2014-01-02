@@ -16,6 +16,8 @@ namespace Controle.Domain.Mappings
            Map(x => x.Cpf);
            Map(x => x.Nome);
            Map(x => x.Sobrenome);
+           Map(x => x.Login).Unique();
+           Map(x => x.Senha);
            HasMany(x => x.Saidas).Cascade.All();
            HasMany(x => x.Entradas).Cascade.All();
 

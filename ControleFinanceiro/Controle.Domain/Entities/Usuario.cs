@@ -10,7 +10,8 @@ namespace Controle.Domain.Entities
         public virtual string Cpf { get; set; }
         public virtual string Nome { get; set; }
         public virtual string Sobrenome { get; set; }
-
+        public virtual string Login { get; set; }
+        public virtual string Senha { get; set; }
         public virtual IList<Entrada> Entradas { get; set; }
         public virtual IList<Saida> Saidas { get; set; }
 

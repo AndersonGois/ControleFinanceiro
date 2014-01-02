@@ -40,7 +40,9 @@ namespace Controle.Teste
                               {
                                   Nome = "Anderson",
                                   Cpf = "4849489489",
-                                  Sobrenome = "Ribeiro"
+                                  Sobrenome = "Ribeiro",
+                                  Senha = "123",
+                                  Login = "anderson"
                               };
             var entrada = new Entrada
                               {
