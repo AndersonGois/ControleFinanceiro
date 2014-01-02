@@ -13,9 +13,18 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Index()
         {
-            var usuario = new UsuarioView {Login = "Anderson", Senha = "123"};
+          
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(UsuarioView usuarioView)
+        {
+            var usuario = new UsuarioView { Login = "ANderson", Senha = "123" };
             var usu = usuario.ObterUsuarioPorLoginSenha(usuario);
-            return View(usu);
+
+            var entrada = new EntradaView {Usuario = usu};
+         return   RedirectToAction("Index", "Entrada", entrada);
         }
 
     }

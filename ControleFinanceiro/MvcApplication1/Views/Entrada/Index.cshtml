@@ -1,4 +1,4 @@
-﻿@model Controle.View.EntradaView
+﻿var teste = @model Controle.View.EntradaView
 
 @{
     ViewBag.Title = "Cadastro de entrada";
@@ -10,8 +10,8 @@
     var exibirCampos = function () {
         $("#porsentagem").hide();
         $("#pNome").hide();
-        
-        $("input[name='Valor']").change(function() {
+
+        $("input[name='Valor']").change(function () {
             if ($("input[name='Valor']").val() == "") {
                 $("#porsentagem").hide();
 
@@ -21,7 +21,7 @@
         });
 
 
-        $("input[name='Nome']").change(function() {
+        $("input[name='Nome']").change(function () {
             if ($("input[name='Nome']").val() == "") {
                 $("#pNome").hide();
 
@@ -33,9 +33,9 @@
 
 
     $(function () {
-        
+
         exibirCampos();
-        
+
         function appViewModel() {
             this.Nome = ko.observable();
             this.Valor = ko.observable();
@@ -87,8 +87,8 @@
                 </div>
 
                 <div>
-                   @* @Html.EditorFor(model => model.DataPrevista)*@
-                    <input id="DataPrevista" class="data"  name="DataPrevista"/>
+                    @* @Html.EditorFor(model => model.DataPrevista)*@
+                    <input id="DataPrevista" class="data" name="DataPrevista" />
                     @Html.ValidationMessageFor(model => model.DataPrevista)
                 </div>
             </div>
@@ -106,6 +106,7 @@
                     @Html.ValidationMessageFor(model => model.Valor)
                 </div>
             </div>
+  
 
 
 
